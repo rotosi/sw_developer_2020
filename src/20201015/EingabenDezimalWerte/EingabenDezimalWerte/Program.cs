@@ -27,7 +27,7 @@ namespace EingabeDezimalWerte
             double lengthB = 0.0;
             double calculatedRectangleArea = 0.0;
             int headerXPosition = 0;
-            string headerText = " Flächen Berechnung";
+            string headerText = " Flächen Berechnung"; 
 
                    
 
