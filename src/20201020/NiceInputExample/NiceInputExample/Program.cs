@@ -27,7 +27,8 @@ namespace NiceInputExample
             string input = string.Empty;
             int geburtsJahrZukunft = 2020;
             int geburtsJahrVergangenheit = 1870;
-            bool validgeburtsJahr = true;
+            const bool validgeburtsJahr = true; // esta es una variable global que se puede definir en el metodo o fuera de este. Cuando es el método se usa solo ahi, y si se declara fuera se usará
+            // en toda la clase. Tambien se puede fuera de clase definir
 
 
             Console.WriteLine("\nBitte dein Geburstsjahr angeben:\n");
