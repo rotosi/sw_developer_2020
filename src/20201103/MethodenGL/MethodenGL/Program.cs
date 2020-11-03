@@ -9,6 +9,8 @@ namespace MethodenGL
     class Program
     {
         static void Main(string[] args)
+
+
         {
             DisplayHello(); //se llama el metodo creado anteriormente solo con el nombre 
             DisplayHello();
@@ -23,7 +25,15 @@ namespace MethodenGL
             Console.WriteLine($"ergebnis: {erg}");
 
 
+            Console.WriteLine($"Bitte Alter eingeben");
+            string input = Console.ReadLine();
+            int alter = GetInt(input);
+
+            Console.WriteLine($"Alter: {alter}");
+
         }
+
+        //signatur
         //Rückgabetyp Bezeichnung ( [Paramter] ) //in dieser Methode deie erste Bustabe des Name ist immer groß
         static void DisplayHello()
         {
@@ -34,7 +44,6 @@ namespace MethodenGL
         {
             ConsoleColor oldColor = Console.ForegroundColor;
             Console.ForegroundColor = messageColor;  //se compara si es el mismo color que tiene messageColor // ich mache ein set here (el color que tengo en messegeColor lo asigno a colosone.foregundColor)
-
 
             Console.WriteLine(message);
 
@@ -50,12 +59,27 @@ namespace MethodenGL
 
             return result; //lo que se va a retornar tiene que siempre ser una variable del tipo del metodo, en este caso es a double
         }
-        
 
-        //static int GetInt(String inputPromt)
-        //{
 
-        //}
+        static int GetInt(String inputPromt)
+        {
+            int alter = 0;
+
+
+            try
+            {
+                alter = int.Parse(inputPromt);
+
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Fehler falsche eingaben");
+                Environment.Exit(1);
+            }
+
+            return alter;
+        }
 
 
 
