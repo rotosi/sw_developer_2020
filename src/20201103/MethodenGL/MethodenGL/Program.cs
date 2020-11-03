@@ -78,7 +78,7 @@ namespace MethodenGL
                 Environment.Exit(1);
             }
 
-            return alter;
+            return alter;// test test
         }
 
 
