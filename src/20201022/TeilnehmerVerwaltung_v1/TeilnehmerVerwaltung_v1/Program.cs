@@ -19,6 +19,8 @@ namespace TeilnehmerVerwaltung_v1
 
             int participantCount = 0;
             string[] participantNames;
+            int[] geburtsJahr;
+            int inputGeburtsJahr;
 
             //Anzahl der Teilnehmer einlesen
             Console.Write("Bitte die Anzahl der Teilnehmer eingeben: ");
@@ -26,6 +28,7 @@ namespace TeilnehmerVerwaltung_v1
 
             //Teilnehmerlist erzeugen & initialisieren
             participantNames = new string[participantCount];
+            geburtsJahr = new int[participantCount];
             for (int i = 0; i < participantNames.Length; i++)
             {
                 participantNames[i] = string.Empty;
@@ -36,6 +39,10 @@ namespace TeilnehmerVerwaltung_v1
             {
                 Console.Write($"Bitte Name Teilnehmer {i + 1} eingeben: ");
                 participantNames[i] = Console.ReadLine();
+
+               Console.Write($"Bitte das Geburtsjahr des Teilnehmer {i + 1} eingeben: ");
+               inputGeburtsJahr = int.Parse(Console.ReadLine());   
+               geburtsJahr[i] = inputGeburtsJahr;
             }
 
             //Ausgabe der Teilnehmernamen
@@ -43,6 +50,7 @@ namespace TeilnehmerVerwaltung_v1
             for (int i = 0; i < participantNames.Length; i++)
             {
                 Console.WriteLine($"\t{participantNames[i]}");
+                Console.WriteLine($"\t{geburtsJahr[i]}");
             }
         }
     }
