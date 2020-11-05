@@ -23,11 +23,7 @@ namespace StrukturenGL.Core
             einTeilnehmer.NachName = "Musterman";
             einTeilnehmer.geburtsdatum = new DateTime(1980, 4, 16);
 
-            Console.WriteLine($"{einTeilnehmer.Vorname} {einTeilnehmer.NachName}"); //imprimimos en una misma linea dos valores
-            
-           
-
-
+            Console.WriteLine($"{einTeilnehmer.Vorname} {einTeilnehmer.NachName}"); //imprimimos en una misma linea dos valores 
 
         }
     }

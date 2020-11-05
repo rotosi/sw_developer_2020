@@ -27,40 +27,30 @@ namespace NiceInputExample
             string input = string.Empty;
             int geburtsJahrZukunft = 2020;
             int geburtsJahrVergangenheit = 1870;
-            const bool validgeburtsJahr = true; // esta es una variable global que se puede definir en el metodo o fuera de este. Cuando es el método se usa solo ahi, y si se declara fuera se usará
+            const bool validgeburtsJahr = true; // esta es una variable global que se puede definir
+            //en el metodo o fuera de este. Cuando es el método se usa solo ahi, y si se declara fuera se usará
             // en toda la clase. Tambien se puede fuera de clase definir
 
 
             Console.WriteLine("\nBitte dein Geburstsjahr angeben:\n");
             input = Console.ReadLine();
-            geburtsJahr = int.Parse(input);
+            geburtsJahr = int.Parse(input);//una de las formas de parsear un entero
 
 
-            do
+
+            try
             {
-                try
+                //while (validgeburtsJahr == true)
+
+                if (geburtsJahr < geburtsJahrZukunft)
                 {
-
-                    //while (validgeburtsJahr == true)
-
-
-                    if (geburtsJahr < geburtsJahrZukunft)
+                    if (geburtsJahr >= geburtsJahrVergangenheit)
                     {
-                        if (geburtsJahr >= geburtsJahrVergangenheit)
-                        {
-                            alter = DateTime.Now.Year - geburtsJahr;
-                            //Alter berechnen
-                            alter = DateTime.Now.Year - geburtsJahr;
-                            //Ausgabe Ergebnis
-                            Console.WriteLine($"Sie sind {alter} Jahre jung!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Geburstsjahr format ist ungültig");
-                            Console.WriteLine("\nBitte dein Geburstsjahr angeben:\n");
-                            input = Console.ReadLine();
-                            geburtsJahr = int.Parse(input);
-                        }
+                        alter = DateTime.Now.Year - geburtsJahr;
+                        //Alter berechnen
+                        alter = DateTime.Now.Year - geburtsJahr;
+                        //Ausgabe Ergebnis
+                        Console.WriteLine($"Sie sind {alter} Jahre jung!");
                     }
                     else
                     {
@@ -70,12 +60,20 @@ namespace NiceInputExample
                         geburtsJahr = int.Parse(input);
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Geburstsjahr format ist ungültig");
+                    Console.WriteLine("\nBitte dein Geburstsjahr angeben:\n");
+                    input = Console.ReadLine();
+                    geburtsJahr = int.Parse(input);
+                }
+
+                // while (validgeburtsJahr == true)// es un boolean no tenemos que comprobar de nuevo se deja (validgebursJahr)    
+
+
 
             }
-            while (validgeburtsJahr == true);// es un boolean no tenemos que comprobar de nuevo se deja (validgebursJahr) 
-
-
-                catch (Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("\nUpps! Leider ist was schief gelaufen:" + e.Message);
                 Console.WriteLine(e.Message);
@@ -85,8 +83,11 @@ namespace NiceInputExample
             }
         }
     }
-
-
 }
+
+
+
+
+
 
 
