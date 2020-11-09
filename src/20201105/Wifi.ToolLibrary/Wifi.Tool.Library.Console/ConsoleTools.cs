@@ -108,7 +108,7 @@ namespace Wifi.ToolLibrary.ConsoleIo
             DateTime userInputValue = DateTime.MinValue;
             bool userInputIsValid = false;
 
-            string inputFormat = "dd.MM.yyyy hh:mm:ss";
+            string inputFormat = "dd.MM.yyyy hh:mm:ss";  
 
             do
             {
