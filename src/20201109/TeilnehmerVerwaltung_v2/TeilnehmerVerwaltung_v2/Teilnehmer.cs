@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TeilnehmerVerwaltung_v2
 {
@@ -12,7 +8,7 @@ namespace TeilnehmerVerwaltung_v2
         public string VorName;
         public string Nachname;
         public DateTime Geburtsdatum;
-        public string Starsse;
+        public string Strasse;
         public string HausNummer;
         public int Plz;
         public string Ort;

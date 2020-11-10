@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{97746950-4AA6-4F73-A522-85770D0A9C93}</ProjectGuid>
+    <ProjectGuid>{9E4171E3-291A-40A4-9221-3DB582AC0322}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TeilnehmerVerwaltung_v2</RootNamespace>
-    <AssemblyName>TeilnehmerVerwaltung_v2</AssemblyName>
+    <RootNamespace>GrundLagenKlassen</RootNamespace>
+    <AssemblyName>GrundLagenKlassen</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -41,20 +41,15 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Wifi.Tool.Library.ConsoleIo">
-      <HintPath>..\..\..\20201105\Wifi.ToolLibrary\Wifi.Tool.Library.Console\bin\Debug\Wifi.Tool.Library.ConsoleIo.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Teilnehmer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

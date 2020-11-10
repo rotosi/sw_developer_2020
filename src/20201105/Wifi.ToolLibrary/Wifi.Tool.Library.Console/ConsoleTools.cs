@@ -36,6 +36,11 @@ namespace Wifi.ToolLibrary.ConsoleIo
             DisplayColoredMessage(message, ConsoleColor.Yellow);
         }
 
+        //public static DisplayColoredMessage(string message, ConsoleColor mesageColor) 
+        //{
+        //    DisplayColoredMessage(message, messageColor, true) //mejorar este lo ha hecho el profe
+        //}
+
 
 
         /// <summary>
@@ -103,12 +108,12 @@ namespace Wifi.ToolLibrary.ConsoleIo
         /// </summary>
         /// <param name="inputPrompt">Prompt for the user</param>
         /// <returns></returns>
-        public static DateTime GetDateTime(string inputPrompt)
+        public static DateTime GetDateTime(string inputPrompt, string dateTimeImputFormatString)
         {
             DateTime userInputValue = DateTime.MinValue;
             bool userInputIsValid = false;
 
-            string inputFormat = "dd.MM.yyyy hh:mm:ss";  
+            string inputFormat = "dd.MM.yyyy HH:mm:ss";
 
             do
             {
@@ -116,7 +121,7 @@ namespace Wifi.ToolLibrary.ConsoleIo
                 try
                 {
                     //read input value and convert to DateTime
-                    userInputValue = DateTime.ParseExact(Console.ReadLine(), inputFormat, CultureInfo.InvariantCulture);
+                    userInputValue = DateTime.ParseExact(Console.ReadLine(), dateTimeImputFormatString, CultureInfo.InvariantCulture);
                     userInputIsValid = true;
                 }
                 catch (Exception ex)
@@ -129,6 +134,10 @@ namespace Wifi.ToolLibrary.ConsoleIo
 
             return userInputValue;
         }
+
+        //public static DateTime getDateTime(string inputPromt)
+        //{ 
+        //}
 
         /// <summary>
         /// Reads an string value from console input.
@@ -143,5 +152,10 @@ namespace Wifi.ToolLibrary.ConsoleIo
             return Console.ReadLine();
         }
 
+        public static void HelloWorld()
+        {
+            Console.WriteLine("Hi!");
+
+        }
     }
 }

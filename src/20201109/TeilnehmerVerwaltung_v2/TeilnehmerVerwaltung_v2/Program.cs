@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//using Wifi.Tool.library.ConsoleIo;
+using System.IO;
+using Wifi.ToolLibrary.ConsoleIo;
 
 namespace TeilnehmerVerwaltung_v2
 {
@@ -11,58 +8,102 @@ namespace TeilnehmerVerwaltung_v2
     {
         static void Main(string[] args)
         {
-            /*Schreiben Sie eine einfache Applikation mit der Teilnehmer verwaltet werden können.
+            /* 
+             * Schreiben Sie eine einfache Applikation mit der Teilnehmer-Daten verwaltet 
+             * werden können.
              * Teilnehmerdaten sollen:
              * 
-             * Eingabe
-             * tabellarische Ausgabe 
-             * Ausgabe in eine Text-Datein (wahlweise)
+             *  - Eingabe
+             *  - tabellarische Ausgabe
+             *  - Ausgabe in eine Text-Datei (wahlweise)
              * 
              * Welche Teilnehmerdaten:
              * 
-             * - Name & Nachname
-             * - Strasse, HausNr, Plz, Ort
-             * - Geburstdatum             *               
+             *   - TeilnehmerID (= Guid)
+             *   - Name & Nachname
+             *   - Strasse, HausNr, Plz, Ort
+             *   - Geburtsdatum
+             *   
              */
 
-            bool saveDataToFile = false;
-            string userInput = string.Empty;
-            
-            Teilnehmer teilnehmer;                       
-            teilnehmer = GetTeilnehmer($"Bitte Teilnehmer eingeben:");
-            Console.WriteLine($"Teilnehmer:" + teilnehmer.VorName);
-            Console.WriteLine($"Teilnehmer:" + teilnehmer.Nachname);
-            Console.WriteLine($"Teilnehmer:" + teilnehmer.Geburtsdatum);
+            int teilnehmerCount = 0;
+            Teilnehmer[] meineTeilnehmer;
 
+
+            //Anzahl einlesen
+            teilnehmerCount = ConsoleTools.GetInt("Anzahl der Teilnehmer eingeben: ");
+
+            //Teilnehmerdaten einlesen
+            meineTeilnehmer = ReadTeilnehmerData(teilnehmerCount);
+
+            //Teilnehmerdaten ausgeben
+            DisplayTeilnehmerData(meineTeilnehmer);
+
+            //Teilnehmerdaten optional als Datei sichern
+            SaveDataToFile(meineTeilnehmer);
         }
 
-        static Teilnehmer GetTeilnehmer(string infoTeilnehmer)
+        static void SaveDataToFile(Teilnehmer[] meineTeilnehmer)
         {
-            Console.WriteLine(infoTeilnehmer);
-            Teilnehmer teilnehmer = new Teilnehmer();
-           
+            string userInput = ConsoleTools.GetString("Wollen Sie die Daten in einer Datei sichern (j/n)?");
+            if (userInput.ToLower() == "j")
+            {
+                string fileName = ConsoleTools.GetString("Dateiname: ");
+                if (!string.IsNullOrWhiteSpace(fileName))
+                {
+                    try
+                    {
+                        SaveData(fileName, meineTeilnehmer);
+                        Console.WriteLine($"Daten wurden in die Datei {fileName} geschrieben.");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Daten konnten nicht gesichert werden.");
+                        Console.WriteLine($"ERROR: {ex.Message}");
+                    }
+                }
+            }
+        }
 
+        static void SaveData(string fileName, Teilnehmer[] meineTeilnehmer)
+        {
+            using (StreamWriter sw = new StreamWriter(fileName, true))
+            {
+                foreach (Teilnehmer t in meineTeilnehmer)
+                {
+                    sw.WriteLine($"{t.VorName}, {t.Nachname}, {t.Strasse}, {t.HausNummer}, {t.Plz}, {t.Ort}, {t.Geburtsdatum}");
+                }
+            }
+        }
 
-            Console.Write("\tVorname: ");
-            teilnehmer.VorName = Console.ReadLine();
+        static void DisplayTeilnehmerData(Teilnehmer[] meineTeilnehmer)
+        {
+            foreach (Teilnehmer t in meineTeilnehmer)
+            {
+                Console.WriteLine($"{t.VorName} {t.Nachname} [{t.Geburtsdatum.Year}] - {t.Plz} {t.Ort}");
+            }
+        }
 
-            Console.Write("\tNachmame: ");
-            teilnehmer.Nachname = Console.ReadLine();
+        static Teilnehmer[] ReadTeilnehmerData(int teilnehmerCount)
+        {
+            Teilnehmer[] myTempDataList = new Teilnehmer[teilnehmerCount];
 
-            Console.Write("\tGeburtsdatum: ");
-            teilnehmer.Geburtsdatum = DateTime.Parse(Console.ReadLine());
+            for (int i = 0; i < teilnehmerCount; i++)
+            {
+                Console.WriteLine($"\nBitte Daten für Teilnehmer {i + 1} eingeben:");
 
-            Console.Write("\tStraße: ");
-            teilnehmer.Starsse = Console.ReadLine();
+                myTempDataList[i].VorName = ConsoleTools.GetString("\tVorname: ");
+                myTempDataList[i].Nachname = ConsoleTools.GetString("\tNachname: ");
 
-            Console.Write("\tPlz: ");
-            teilnehmer.Plz = int.Parse(Console.ReadLine());
+                myTempDataList[i].Strasse = ConsoleTools.GetString("\tStrasse: ");
+                myTempDataList[i].HausNummer = ConsoleTools.GetString("\tHausNr: ");
+                myTempDataList[i].Ort = ConsoleTools.GetString("\tOrt: ");
+                myTempDataList[i].Plz = ConsoleTools.GetInt("\tPlz: ");
 
-            Console.Write("\tOrt: ");
-            teilnehmer.Ort = Console.ReadLine();
+                myTempDataList[i].Geburtsdatum = ConsoleTools.GetDateTime("\tGeburtsdatum: ");
+            }
 
-            return teilnehmer;
-            // en la solucion del profesor usa array por que se van a introducir mas de un Teilnehmer 10 e.g.
+            return myTempDataList;
         }
     }
 }
