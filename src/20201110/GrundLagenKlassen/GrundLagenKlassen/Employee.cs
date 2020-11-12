@@ -12,7 +12,7 @@ namespace GrundLagenKlassen
         public EmployeeState State;
 
         //std. Konstruktor
-        //public Employee() //es un metodo en una clase donde no se inicializa. tiene que se exactamente al de la clase  //cada uno tiene una tarea
+        //public Employee() //es un metodo en una clase donde no se inicializa. tiene que se exactamente al de la clase  //cada uno tiene una tareass
         //{
         //    Name = "No Name";
         //    Id = Guid.NewGuid();
