@@ -1,7 +1,7 @@
 ﻿namespace GrundLagenKlassen
 {
     public enum EmployeeState
-    {
+  {
 
         Employed,
         Discontinued,
