@@ -34,7 +34,7 @@ namespace Library
       Console.WriteLine();
     }
 
-    public void SchoolName();
+    public void SchoolNames();
 
 
   }

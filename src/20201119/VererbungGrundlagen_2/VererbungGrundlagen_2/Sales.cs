@@ -23,7 +23,7 @@ namespace VererbungGrundlagen_2
         {
             get { return _provision; }
             set { _provision = value; }
-        }              
+        }     
 
 
     }

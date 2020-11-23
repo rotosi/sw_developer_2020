@@ -9,14 +9,7 @@ namespace VererbungGrundlagen_2
         private string _nachname;
         private decimal _salary;
         private Guid _id;
-        private DateTime _geburtsDatum;      
-
-
-        //hack!
-        public Employee()
-        {
-
-        }
+        private DateTime _geburtsDatum;              
 
         public Employee(string vorname, string nachname, DateTime geburtsDatum, decimal salary)
 
@@ -25,7 +18,7 @@ namespace VererbungGrundlagen_2
             _nachname = nachname;
             _geburtsDatum = geburtsDatum;
             _salary = salary;
-            
+            _id = Guid.NewGuid();
         }       
 
         public Guid Id
@@ -51,9 +44,7 @@ namespace VererbungGrundlagen_2
         {
             get { return _geburtsDatum; }
             set { _geburtsDatum = value; }
-        }
-
-        public decimal BasisSalary { get; }
+        }      
 
 
         public decimal GetCalculatedSalary()
