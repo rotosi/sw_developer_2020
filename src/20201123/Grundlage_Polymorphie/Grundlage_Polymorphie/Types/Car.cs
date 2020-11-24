@@ -29,6 +29,7 @@ namespace Grundlage_Polymorphie.Types
 
         public override string GetInfoString()
         {
+            base.ge
             return $"Fahrzeug: '{Model.ToUpper()}--{Description}' Aktueller Tankstatus: {_fuel}%";
         }
 
