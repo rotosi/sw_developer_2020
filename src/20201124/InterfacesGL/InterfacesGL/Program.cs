@@ -11,7 +11,7 @@ namespace AbstrakteKlassen
         static void Main(string[] args)
         {
             //abstration
-           IDataRepository repository = new MemoryRepository(200);
+           IDataRepository repository = new MemoryRepository(15);
             //IDataRepository repository = new TextFileRepository("myData.txt", 200);
 
             //daten speichern

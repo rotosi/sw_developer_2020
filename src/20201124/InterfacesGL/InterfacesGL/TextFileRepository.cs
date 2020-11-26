@@ -36,21 +36,21 @@ namespace AbstrakteKlassen
             get { return _maxSize; }
         }
 
-        public  string Read()
-        {
-            if (string.IsNullOrWhiteSpace(_fileName) || !File.Exists(_fileName))
-            {
-                Debug.WriteLine($"Dateiname '{_fileName}' darf nicht leer sein oder Datei nicht gefunden.");
-                return string.Empty;
-            }
+    public string Read()
+    {
+      if (string.IsNullOrWhiteSpace(_fileName) || !File.Exists(_fileName))
+      {
+        Debug.WriteLine($"Dateiname '{_fileName}' darf nicht leer sein oder Datei nicht gefunden.");
+        return string.Empty;
+      }
 
-            using (StreamReader sr = new StreamReader(_fileName))
-            {
-                return sr.ReadToEnd();
-            }
-        }
+      using (StreamReader sr = new StreamReader(_fileName))
+      {
+        return sr.ReadToEnd();
+      }
+    }
 
-        public  void Write(string data)
+    public  void Write(string data)
         {
             //ToDo! Check maxSize of File!
 

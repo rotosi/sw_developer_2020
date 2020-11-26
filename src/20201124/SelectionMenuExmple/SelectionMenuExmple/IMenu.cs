@@ -13,7 +13,6 @@ namespace SelectionMenuExmple
 
         void Add(IMenuItem meunItem);
         void Remove(IMenu meunItem);
-
         void Display(int width);
     }
 }

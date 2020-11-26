@@ -10,6 +10,7 @@ namespace SelectionMenuExmple
     {
         static void Main(string[] args)
         {
+      IMenuItem menu = new EmptyItem();
         }
     }
 }

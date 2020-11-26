@@ -1,10 +1,11 @@
 ﻿namespace SelectionMenuExmple
-{
-    public class IMenuItem
+{  
+    public interface IMenuItem
     {
-        string Description { get; }
-        char Code{get; }
+      string Description { get; }
+      char Code { get; }
 
-        void Display(int width);
+
+      void Display(int width);
     }
-}
+  }

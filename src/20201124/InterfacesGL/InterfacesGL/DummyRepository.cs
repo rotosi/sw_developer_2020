@@ -22,7 +22,7 @@ namespace InterfacesGL
 
         public void Write(string data)
         {
-            Console.WriteLine("Daten werden");
+            Console.WriteLine("Daten werden nun geschrieben...");
         }
     }
 }
