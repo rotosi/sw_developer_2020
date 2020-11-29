@@ -24,9 +24,11 @@ namespace SelectionMenuExmple
     public int Code
     {
       get { return _code; }
-    } 
-    
-    void IMenuItem.Display(int width)
+    }
+
+        char IMenuItem.Code => throw new NotImplementedException();
+
+        void IMenuItem.Display(int width)
     {
       throw new NotImplementedException();
     }
