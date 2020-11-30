@@ -11,37 +11,34 @@ namespace SelectionMenuExample
     {
         static void Main(string[] args)
         {
-            Menu myMenu = new Menu();
+            IMenu myMenu = new Menu();
+
+            myMenu = CreateMenu();
 
             //myMenu.LoadFromFile("menufile.txt");
 
-            myMenu.Add(new MenuItem("Daten laden", ConsoleKey.F1));
-            myMenu.Add(new MenuItem("Daten speichern", ConsoleKey.F2));
-            myMenu.Add(new EmptyItem()); // esta linea esta vacia
-            myMenu.Add(new MenuItem("Daten löschen", ConsoleKey.F3));
-            myMenu.Add(new MenuItem("Daten drucken", ConsoleKey.F4));
-            myMenu.Add(new EmptyItem());
-            myMenu.Add(new ColoredMenuItem("Ende", ConsoleKey.Escape, ConsoleColor.Yellow));
 
             myMenu.Display(35);
 
             var mySelection = myMenu.SelectItem("Ihre Wahl: ");
 
-            Console.WriteLine(mySelection.Description);
+            Console.WriteLine($"\nIhre Auswahl: {mySelection.Description}");
+        }
+        private static IMenu CreateMenu()
+        {
 
-            //if(mySelection  == "daten laden")
-            //{
-            //    //tu was => daten sollen geladen werden
-            //}
-            //else if (mySelection == "daten speicher")
-            //{
-            //    //tu was => daten sollen gesichert werden
-            //}
+            Menu myMenu = new Menu(); //metodo
+
+            myMenu.Add(new MenuItem("Daten laden", ConsoleKey.F1));
+            myMenu.Add(new MenuItem("Daten speichern", ConsoleKey.F2));
+            myMenu.Add(new EmptyItem());
+            myMenu.Add(new MenuItem("Daten löschen", ConsoleKey.F3));
+            myMenu.Add(new MenuItem("Daten drucken", ConsoleKey.F4));
+            myMenu.Add(new EmptyItem());
+            myMenu.Add(new ColoredMenuItem("Ende", ConsoleKey.Escape, ConsoleColor.Yellow));
+
+            return myMenu;
         }
 
-        static int EineMethode(string something)
-        {
-            var isValid = true;
-        }     
     }
 }

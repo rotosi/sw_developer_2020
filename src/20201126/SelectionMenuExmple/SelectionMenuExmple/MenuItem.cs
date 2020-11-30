@@ -1,17 +1,26 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SelectionMenuExample.Items
 {
-    public class MenuItem : IMenuItem
+    public class MenuItem : IMenuItemWithUpdateableSelectable
     {
         private string _description;
         private ConsoleKey _code;
+        private bool _selectable;
+        private bool _visible;
+
 
         public MenuItem(string description, ConsoleKey code)
         {
             _description = description;
             _code = code;
+
+            _visible = true;
+            _selectable = true;
         }
 
         public string Description
@@ -24,17 +33,30 @@ namespace SelectionMenuExample.Items
             get { return _code; }
         }
 
-        public bool Selectable { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool Visible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool Selectable
+        {
+            get { return _selectable; }
+        }
+
+        public bool Visible
+        {
+            get { return _visible; }
+            set { _visible = value; }
+        }
 
         public virtual void Display(int width)
         {
             //Daten laden...............L
             //Program beenden...........Q
-            Console.WriteLine($"{_description} {new string('.', width - _description.Length)} {_code}");
+            if (_visible)
+            {
+                Console.WriteLine($"{_description} {new string('.', width - _description.Length)} {_code}");
+            }
+        }
+
+        public void UpdateSelectable(bool newValue)
+        {
+            _selectable = newValue;
         }
     }
 }
-
-//da igual como se inicialize con este ToLower se convierte a lo que se necesita
-

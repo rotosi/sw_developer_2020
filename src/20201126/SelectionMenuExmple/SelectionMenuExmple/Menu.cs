@@ -1,6 +1,9 @@
-﻿using System;
+﻿using SelectionMenuExample.Items;
+using System;
 using System.Collections.Generic;
-
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SelectionMenuExample
 {
@@ -17,6 +20,11 @@ namespace SelectionMenuExample
         public int Count
         {
             get { return _items.Count; }
+        }
+
+        internal void Add(MenuItem menuItem)
+        {
+            throw new NotImplementedException();
         }
 
         public void Add(IMenuItem menuItem)
@@ -42,14 +50,13 @@ namespace SelectionMenuExample
         public IMenuItem SelectItem(string inputPrompt)
         {
             while (true) //var cuando se declara una variable tipo var cuando no se sabe bien el tipo que es puede ser un double, etc
-
             {
                 Console.Write(inputPrompt);
                 var userInput = Console.ReadKey(true);
 
                 foreach (var menuItem in _items)
                 {
-                    if (userInput.Key == menuItem.Code)
+                    if (userInput.Key == menuItem.Code && menuItem.Selectable)
                     {
                         return menuItem;
                     }
@@ -60,6 +67,7 @@ namespace SelectionMenuExample
         }
     }
 }
+
 
 
 

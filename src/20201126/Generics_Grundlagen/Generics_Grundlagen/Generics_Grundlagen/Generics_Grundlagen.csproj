@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F11787DE-2D48-47D4-97DF-599A97F64530}</ProjectGuid>
+    <ProjectGuid>{2B5231A6-0951-4D58-A338-D4D2153C20E3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SelectionMenuExmple</RootNamespace>
-    <AssemblyName>SelectionMenuExmple</AssemblyName>
+    <RootNamespace>Generics_Grundlagen</RootNamespace>
+    <AssemblyName>Generics_Grundlagen</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,13 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Items\ColoredMenuItem.cs" />
-    <Compile Include="Items\EmptyItem.cs" />
-    <Compile Include="IMenu.cs" />
-    <Compile Include="IMenuItem.cs" />
-    <Compile Include="Items\SeparatorItem.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="MenuItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

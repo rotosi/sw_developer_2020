@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SelectionMenuExample.Items
 {
@@ -7,7 +11,7 @@ namespace SelectionMenuExample.Items
         private ConsoleColor _itemColor;
 
         public ColoredMenuItem(string description, ConsoleKey code, ConsoleColor itemColor)
-            : base(description, code) //se trae todo de la clase base que es Menu
+            : base(description, code)
         {
             _itemColor = itemColor;
         }
@@ -27,4 +31,4 @@ namespace SelectionMenuExample.Items
             Console.ForegroundColor = oldColor;
         }
     }
-} 
+}
