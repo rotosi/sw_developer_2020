@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace SelectionMenuExample
 {
-    public class Menu : IMenu
+    public class Menu<T> : IMenu<T>
     {
-        private List<IMenuItem> _items;
+        private List<IMenuItem<T>> _items;
 
         public Menu()
         {
-            _items = new List<IMenuItem>();
+            _items = new List<IMenuItem<T>>();
         }
 
 
@@ -22,17 +22,17 @@ namespace SelectionMenuExample
             get { return _items.Count; }
         }
 
-        internal void Add(MenuItem menuItem)
+        internal void Add(MenuItem<T> menuItem) //IMenuItem <T>
         {
             throw new NotImplementedException();
         }
 
-        public void Add(IMenuItem menuItem)
+        public void Add(IMenuItem<T> menuItem)
         {
             _items.Add(menuItem);
         }
 
-        public void Remove(IMenuItem menuItem)
+        public void Remove(IMenuItem<T> menuItem)
         {
             _items.Remove(menuItem);
         }
@@ -47,7 +47,7 @@ namespace SelectionMenuExample
             Console.WriteLine();
         }
 
-        public IMenuItem SelectItem(string inputPrompt)
+        public IMenuItem<T> SelectItem(string inputPrompt)
         {
             while (true) //var cuando se declara una variable tipo var cuando no se sabe bien el tipo que es puede ser un double, etc
             {

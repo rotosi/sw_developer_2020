@@ -2,7 +2,7 @@
 
 namespace SelectionMenuExample
 {
-    public interface IMenuItem
+    public interface IMenuItem<T>
     {
         string Description { get; }
         ConsoleKey Code { get; } // kein implementierung, es immer public in clase abstract
@@ -12,12 +12,10 @@ namespace SelectionMenuExample
 
 
         void Display(int width);
-    }
 
-    public interface IMenuItemWithUpdatebleSelectable : IMenuItem
-    {
-        void UpdateSelectable(bool newValue);
+        void Execute(T executionParamenter);
     }
+    
 }
 
 

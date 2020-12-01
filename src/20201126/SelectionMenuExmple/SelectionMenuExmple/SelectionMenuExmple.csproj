@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationParameters.cs" />
+    <Compile Include="IMenuItemWithUpdateableSelectable.cs" />
     <Compile Include="Items\ColoredMenuItem.cs" />
     <Compile Include="Items\EmptyItem.cs" />
     <Compile Include="IMenu.cs" />

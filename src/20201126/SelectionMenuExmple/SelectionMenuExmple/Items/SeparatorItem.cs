@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace SelectionMenuExmple.Items
 {
-    public class SeparatorItem : MenuItem
+    public class SeparatorItem<T> : MenuItem<T>
     {
         private char _separator;
-        public SeparatorItem(char separator) : base(string.Empty, ConsoleKey.Spacebar)
+        public SeparatorItem(char separator) : base(string.Empty, ConsoleKey.Spacebar, null)
         {
             _separator = separator;
             UpdateSelectable(false);
