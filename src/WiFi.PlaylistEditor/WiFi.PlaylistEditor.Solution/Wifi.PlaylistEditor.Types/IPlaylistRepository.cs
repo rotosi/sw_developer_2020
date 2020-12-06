@@ -6,20 +6,15 @@ using System.Threading.Tasks;
 
 namespace Wifi.PlaylistEditor
 {
-    class IPlaylistRepository
+    public interface IPlaylistRepository
     {
-        string Extension { get; }
-        string Description { get; }
+        string Extension { get; set; }
+        string Description { get; set; }
 
-       // void 
-
-
-
-
-
+        void Load();
+        void Save();
+        
     }
 
-
-
-    }
+}
 

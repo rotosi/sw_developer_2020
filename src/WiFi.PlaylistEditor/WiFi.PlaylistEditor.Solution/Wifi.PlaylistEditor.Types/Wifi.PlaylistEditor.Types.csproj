@@ -54,6 +54,8 @@
     </Compile>
     <Compile Include="IPlaylistItems.cs" />
     <Compile Include="IPlaylistRepository.cs" />
+    <Compile Include="JsonRepository.cs" />
+    <Compile Include="M3uRepository.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

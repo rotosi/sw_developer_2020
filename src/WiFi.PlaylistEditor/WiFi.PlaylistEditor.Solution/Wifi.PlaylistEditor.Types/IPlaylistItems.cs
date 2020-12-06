@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace Wifi.PlaylistEditor
 {
-    class IPlaylistItems
+    public interface IPlaylistItems
     {
-        string Title { get; }
-        string Artist { get; }
-        float Duration { get; }
-        // Path;
-        //Thurmbnail;    
-
-
+        string Title { get; set; }
+        string Artist { get; set; }
+        TimeSpan Duration { get; set; }
+        string Path { get; set; }
+        // Thumbnail;    
     }
 }
