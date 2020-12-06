@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wifi.PlaylistEditor.Items
 {
-    class mp3Item : IPlaylistItems
+    public class mp3Item : IPlaylistItems
     {
         private string _title;
         private string _artist;
@@ -35,6 +35,11 @@ namespace Wifi.PlaylistEditor.Items
         {
             get { return _path; }
             set { _path = value; }
+        }
+
+        override public string ToString()
+        {
+            return _title + " (" + _artist + ")";
         }
 
 

@@ -7,8 +7,10 @@ using Wifi.PlaylistEditor.Types;
 
 namespace Wifi.PlaylistEditor
 {
-    class Playlist
+    public class Playlist
     {
+        public Playlist() {}
+
         private string _name;
         private string _autor;
         private List<IPlaylistItems> _itemList = new List<IPlaylistItems>();
