@@ -44,10 +44,10 @@ namespace Wifi.PlaylistEditor
         }
 
         private static ListViewItem createListViewItem(IPlaylistItems item)
-        {
+        {            
             ListViewItem lvi = new ListViewItem();
             lvi.Text = item.ToString();
-            lvi.Tag = item;
+            lvi.Tag = item;             
             return lvi;
         }
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,9 +55,9 @@ namespace Wifi.PlaylistEditor
             FormEditMp3 editMp3 = new FormEditMp3();
             if (editMp3.ShowDialog() == DialogResult.OK)
             {
-                Items.mp3Item mp3 = new Items.mp3Item();
-                mp3.Artist = editMp3.GetArtist();
-                mp3.Title = editMp3.GetTitle();
+                Items.Mp3Item mp3 = new Items.Mp3Item(editMp3.GetPath());
+                //mp3.Artist = editMp3.GetArtist();
+                //mp3.Title = editMp3.GetTitle();                
                 var lvi = createListViewItem(mp3);
                 listView.Items.Add(lvi);
             }

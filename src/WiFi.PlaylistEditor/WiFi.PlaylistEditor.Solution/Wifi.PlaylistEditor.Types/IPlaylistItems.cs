@@ -10,8 +10,9 @@ namespace Wifi.PlaylistEditor
     {
         string Title { get; set; }
         string Artist { get; set; }
-        TimeSpan Duration { get; set; }
+        TimeSpan Duration { get; }
         string Path { get; set; }
+
         // Thumbnail;    
     }
 }

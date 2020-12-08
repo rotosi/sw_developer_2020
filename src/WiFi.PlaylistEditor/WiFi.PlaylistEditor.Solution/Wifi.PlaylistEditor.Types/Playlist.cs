@@ -15,7 +15,7 @@ namespace Wifi.PlaylistEditor
         private string _autor;
         private List<IPlaylistItems> _itemList = new List<IPlaylistItems>();
 
-        private IPlaylistRepository _repository = new JsonRepository();  
+        private IPlaylistRepository _repository = new M3uRepository();  
 
         public List<IPlaylistItems> ItemList
         {

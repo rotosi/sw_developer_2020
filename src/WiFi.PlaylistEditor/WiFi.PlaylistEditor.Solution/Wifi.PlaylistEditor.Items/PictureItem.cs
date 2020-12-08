@@ -30,7 +30,6 @@ namespace Wifi.PlaylistEditor.Items
         public TimeSpan Duration
         {
             get { return _duration; }
-            set { _duration = value; }
         }
         public string Path
         {

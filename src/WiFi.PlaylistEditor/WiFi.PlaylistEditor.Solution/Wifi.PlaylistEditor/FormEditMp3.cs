@@ -40,6 +40,19 @@ namespace Wifi.PlaylistEditor
             return txtTitle.Text;
         }
 
+        public string GetPath()
+        {
+            return txtPath.Text;
+        }
 
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            openFileDialog.Filter = "mp3 files (*.mp3) | *.mp3";
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtPath.Text = openFileDialog.FileName;
+            }
+
+        }
     }
 }
