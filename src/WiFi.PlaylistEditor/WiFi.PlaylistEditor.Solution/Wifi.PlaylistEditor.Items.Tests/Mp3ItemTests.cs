@@ -43,9 +43,8 @@ namespace Wifi.PlaylistEditor.Items.Tests
                 //act
                 var title = _fixture.Title;
 
-                //assert
-                Assert.That(title, Is.Not.Null);
-                Assert.That(title, Is.Empty);
+                //assert                
+                Assert.That(title, Is.EqualTo("--[File not found]--"));
             }
 
             [Test]

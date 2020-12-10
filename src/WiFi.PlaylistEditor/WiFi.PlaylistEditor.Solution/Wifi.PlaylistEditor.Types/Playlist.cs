@@ -13,14 +13,24 @@ namespace Wifi.PlaylistEditor
 
         private string _name;
         private string _autor;
-        private List<IPlaylistItems> _itemList = new List<IPlaylistItems>();
+        private DateTime _createArt;
+        private List<IPlaylistItems> _itemList = new List<IPlaylistItems>();       
+
+
+
+        
+
+        public DateTime CreateArt 
+        {
+            get { return _createArt; }            
+        }      
+
 
         private IPlaylistRepository _repository = new M3uRepository();  
 
-        public List<IPlaylistItems> ItemList
+        public IEnumerable<IPlaylistItems> ItemList
         {
-            get { return _itemList; }
-            set { _itemList = value; }
+            get { return _itemList; }            
         }
 
         public string Autor
@@ -56,6 +66,29 @@ namespace Wifi.PlaylistEditor
         public void Save()
         {
             _repository.Save();
+        }
+
+
+        public TimeSpan Duration
+        {
+            get
+            {
+                TimeSpan duration = TimeSpan.Zero;
+
+                if (_itemList != null)
+                {
+                  
+
+                    foreach (var item in _itemList)
+                    {
+                        duration = duration.Add(_itemList.Duration);
+                    }
+
+                   // duration = TimeSpan.FromSeconds(_itemList.Sum(x => x.Duration.TotalSeconds));
+                }
+
+                return duration;
+            }
         }
 
     }
