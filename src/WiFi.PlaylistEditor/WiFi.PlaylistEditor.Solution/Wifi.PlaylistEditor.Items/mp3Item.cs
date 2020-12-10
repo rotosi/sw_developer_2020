@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.IO;
+using System.Diagnostics;
 
 namespace Wifi.PlaylistEditor.Items
 {
@@ -13,12 +15,31 @@ namespace Wifi.PlaylistEditor.Items
         private string _title;
         private string _artist;
         private TimeSpan _duration;
+        private Image _thumbnail;
         private TagLib.IPicture[] _pictures;
 
         public Mp3Item(string path)
         {
             _path = path;
-            Read(_path);
+            //Read(_path);
+
+            _path = path;
+            if (string.IsNullOrWhiteSpace(_path) || !File.Exists(_path))
+            {
+                InitFieldsWithEmpty();
+            }
+            else
+            {
+                ReadIdv3TagsFromFile();
+            }
+        }
+
+        private void InitFieldsWithEmpty()
+        {
+            _artist = string.Empty;
+            _duration = TimeSpan.Zero;
+            _thumbnail = null;
+            _title = "--[File not found]--";
         }
 
         public string Title
@@ -28,7 +49,7 @@ namespace Wifi.PlaylistEditor.Items
             {
                 _title = value;
                 var tfile = TagLib.File.Create(_path);
-                tfile.Tag.Title = _title;
+                tfile.Tag.Title = _title; //no se cambia el nombre 
                 tfile.Save();
             }
         }
@@ -57,13 +78,40 @@ namespace Wifi.PlaylistEditor.Items
             return _title + " (" + _artist + ")";
         }
 
-        private void Read(string path)
+        //private void Read(string path)
+        //{
+        //    var tfile = TagLib.File.Create(path);
+        //    _title = tfile.Tag.Title;
+        //    _duration = tfile.Properties.Duration;
+        //    _artist = tfile.Tag.JoinedAlbumArtists; //firtAlbumArtist
+        //    _pictures = tfile.Tag.Pictures;
+        //}
+
+        public Image Thumbnail
         {
-            var tfile = TagLib.File.Create(path);
+            get => _thumbnail;
+            set => _thumbnail = value;
+        }
+
+        private void ReadIdv3TagsFromFile()
+        {
+            var tfile = TagLib.File.Create(_path);
             _title = tfile.Tag.Title;
             _duration = tfile.Properties.Duration;
-            _artist = tfile.Tag.JoinedAlbumArtists;
-            _pictures = tfile.Tag.Pictures;            
+            //_artist = tfile.Tag.FirstAlbumArtist;
+            _artist = tfile.Tag.FirstPerformer;
+
+            if (tfile.Tag.Pictures != null && tfile.Tag.Pictures.Length > 0)
+            {
+                //https://stackoverflow.com/questions/10247216/c-sharp-mp3-id-tags-with-taglib-album-art
+                _thumbnail = Image.FromStream(new MemoryStream(tfile.Tag.Pictures[0].Data.Data));
+            }
+            else
+            {
+                _thumbnail = null;
+                Debug.WriteLine($"{System.IO.Path.GetFileName(_path)}: No Image stream found.");
+            }
         }
     }
+   
 }

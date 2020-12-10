@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,13 @@ namespace Wifi.PlaylistEditor.Items
         private string _artist;
         private TimeSpan _duration;
         private string _path;
+        private Image _thumbnail;
+
+        public Image Thumbnail
+        {
+            get { return _thumbnail; }
+            set { _thumbnail = value; }
+        }
 
 
         public string Title
@@ -36,5 +44,6 @@ namespace Wifi.PlaylistEditor.Items
             get { return _path; }
             set { _path = value; }
         }
+        
     }
 }
