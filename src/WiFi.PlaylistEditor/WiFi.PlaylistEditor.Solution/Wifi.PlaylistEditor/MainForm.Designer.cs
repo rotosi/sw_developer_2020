@@ -29,44 +29,43 @@ namespace Wifi.PlaylistEditor
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.listView = new System.Windows.Forms.ListView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.to = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_playlistDetails = new System.Windows.Forms.Label();
-            this.lbl_playlistTitle = new System.Windows.Forms.Label();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.menuStrip.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // listView
-            // 
-            this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(40, 125);
-            this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(1006, 402);
-            this.listView.TabIndex = 2;
-            this.listView.UseCompatibleStateImageBehavior = false;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.listView = new System.Windows.Forms.ListView();
+      this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+      this.to = new System.Windows.Forms.ToolStripButton();
+      this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+      this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+      this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+      this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+      this.panel1 = new System.Windows.Forms.Panel();
+      this.lbl_playlistDetails = new System.Windows.Forms.Label();
+      this.lbl_playlistTitle = new System.Windows.Forms.Label();
+      this.menuStrip = new System.Windows.Forms.MenuStrip();
+      this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStrip1.SuspendLayout();
+      this.panel1.SuspendLayout();
+      this.menuStrip.SuspendLayout();
+      this.SuspendLayout();
+      // 
+      // listView
+      // 
+      this.listView.HideSelection = false;
+      this.listView.Location = new System.Drawing.Point(40, 125);
+      this.listView.Name = "listView";
+      this.listView.Size = new System.Drawing.Size(1006, 402);
+      this.listView.TabIndex = 2;
+      this.listView.UseCompatibleStateImageBehavior = false;
+      // 
+      // toolStrip1
+      // 
+      this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
+      this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+      this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.to,
             this.toolStripButton2,
             this.toolStripButton3,
@@ -74,175 +73,178 @@ namespace Wifi.PlaylistEditor
             this.toolStripButton4,
             this.toolStripButton5,
             this.toolStripButton6});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(37, 539);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // to
-            // 
-            this.to.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.to.Image = global::Wifi.PlaylistEditor.Properties.Resources.new_document_32_1163472;
-            this.to.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.to.Name = "to";
-            this.to.Size = new System.Drawing.Size(34, 36);
-            this.to.Text = "Neue Playlist anlegen";
-            this.to.ToolTipText = "Playlist anlegen";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::Wifi.PlaylistEditor.Properties.Resources.new_document_32_1163472;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(34, 36);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::Wifi.PlaylistEditor.Properties.Resources.new_document_32_1163472;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(34, 36);
-            this.toolStripButton3.Text = "toolStripButton3";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(34, 6);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(34, 36);
-            this.toolStripButton4.Text = "toolStripButton4";
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(34, 36);
-            this.toolStripButton5.Text = "toolStripButton5";
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(34, 36);
-            this.toolStripButton6.Text = "toolStripButton6";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.lbl_playlistDetails);
-            this.panel1.Controls.Add(this.lbl_playlistTitle);
-            this.panel1.Controls.Add(this.menuStrip);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(37, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1021, 119);
-            this.panel1.TabIndex = 4;
-            // 
-            // lbl_playlistDetails
-            // 
-            this.lbl_playlistDetails.AutoSize = true;
-            this.lbl_playlistDetails.Font = new System.Drawing.Font("AR BLANCA", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_playlistDetails.Location = new System.Drawing.Point(60, 81);
-            this.lbl_playlistDetails.Name = "lbl_playlistDetails";
-            this.lbl_playlistDetails.Size = new System.Drawing.Size(298, 23);
-            this.lbl_playlistDetails.TabIndex = 1;
-            this.lbl_playlistDetails.Text = "Playlist Dauer: 00:15:12 | Autor: Sia";
-            // 
-            // lbl_playlistTitle
-            // 
-            this.lbl_playlistTitle.AutoSize = true;
-            this.lbl_playlistTitle.Font = new System.Drawing.Font("AR CENA", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_playlistTitle.Location = new System.Drawing.Point(42, 40);
-            this.lbl_playlistTitle.Name = "lbl_playlistTitle";
-            this.lbl_playlistTitle.Size = new System.Drawing.Size(325, 41);
-            this.lbl_playlistTitle.TabIndex = 0;
-            this.lbl_playlistTitle.Text = "Demoplaylist Charts 1980";
-            this.lbl_playlistTitle.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+      this.toolStrip1.Name = "toolStrip1";
+      this.toolStrip1.Size = new System.Drawing.Size(37, 539);
+      this.toolStrip1.TabIndex = 3;
+      this.toolStrip1.Text = "toolStrip1";
+      // 
+      // to
+      // 
+      this.to.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.to.Image = global::Wifi.PlaylistEditor.Properties.Resources.file;
+      this.to.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.to.Name = "to";
+      this.to.Size = new System.Drawing.Size(34, 36);
+      this.to.Text = "Neue Playlist anlegen";
+      this.to.ToolTipText = "Playlist anlegen";
+      this.to.Click += new System.EventHandler(this.to_Click);
+      // 
+      // toolStripButton2
+      // 
+      this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.toolStripButton2.Image = global::Wifi.PlaylistEditor.Properties.Resources.folder;
+      this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.toolStripButton2.Name = "toolStripButton2";
+      this.toolStripButton2.Size = new System.Drawing.Size(34, 36);
+      this.toolStripButton2.Text = "toolStripButton2";
+      // 
+      // toolStripButton3
+      // 
+      this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.toolStripButton3.Image = global::Wifi.PlaylistEditor.Properties.Resources.Disquette1;
+      this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.toolStripButton3.Name = "toolStripButton3";
+      this.toolStripButton3.Size = new System.Drawing.Size(34, 36);
+      this.toolStripButton3.Text = "toolStripButton3";
+      // 
+      // toolStripSeparator1
+      // 
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      this.toolStripSeparator1.Size = new System.Drawing.Size(34, 6);
+      // 
+      // toolStripButton4
+      // 
+      this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.toolStripButton4.Image = global::Wifi.PlaylistEditor.Properties.Resources.Plus1;
+      this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.toolStripButton4.Name = "toolStripButton4";
+      this.toolStripButton4.Size = new System.Drawing.Size(34, 36);
+      this.toolStripButton4.Text = "toolStripButton4";
+      // 
+      // toolStripButton5
+      // 
+      this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.toolStripButton5.Image = global::Wifi.PlaylistEditor.Properties.Resources.Escoba;
+      this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.toolStripButton5.Name = "toolStripButton5";
+      this.toolStripButton5.Size = new System.Drawing.Size(34, 36);
+      this.toolStripButton5.Text = "toolStripButton5";
+      this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+      // 
+      // toolStripButton6
+      // 
+      this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.toolStripButton6.Image = global::Wifi.PlaylistEditor.Properties.Resources.cross;
+      this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.toolStripButton6.Name = "toolStripButton6";
+      this.toolStripButton6.Size = new System.Drawing.Size(34, 36);
+      this.toolStripButton6.Text = "toolStripButton6";
+      this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+      // 
+      // panel1
+      // 
+      this.panel1.BackColor = System.Drawing.SystemColors.Control;
+      this.panel1.Controls.Add(this.lbl_playlistDetails);
+      this.panel1.Controls.Add(this.lbl_playlistTitle);
+      this.panel1.Controls.Add(this.menuStrip);
+      this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+      this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
+      this.panel1.Location = new System.Drawing.Point(37, 0);
+      this.panel1.Name = "panel1";
+      this.panel1.Size = new System.Drawing.Size(1021, 119);
+      this.panel1.TabIndex = 4;
+      // 
+      // lbl_playlistDetails
+      // 
+      this.lbl_playlistDetails.AutoSize = true;
+      this.lbl_playlistDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lbl_playlistDetails.Location = new System.Drawing.Point(60, 81);
+      this.lbl_playlistDetails.Name = "lbl_playlistDetails";
+      this.lbl_playlistDetails.Size = new System.Drawing.Size(297, 24);
+      this.lbl_playlistDetails.TabIndex = 1;
+      this.lbl_playlistDetails.Text = "Playlist Dauer: 00:15:12 | Autor: Sia";
+      // 
+      // lbl_playlistTitle
+      // 
+      this.lbl_playlistTitle.AutoSize = true;
+      this.lbl_playlistTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lbl_playlistTitle.Location = new System.Drawing.Point(42, 40);
+      this.lbl_playlistTitle.Name = "lbl_playlistTitle";
+      this.lbl_playlistTitle.Size = new System.Drawing.Size(415, 39);
+      this.lbl_playlistTitle.TabIndex = 0;
+      this.lbl_playlistTitle.Text = "Demoplaylist Charts 1980";
+      this.lbl_playlistTitle.Click += new System.EventHandler(this.label1_Click);
+      // 
+      // menuStrip
+      // 
+      this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.itemsToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1021, 24);
-            this.menuStrip.TabIndex = 2;
-            this.menuStrip.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // itemsToolStripMenuItem
-            // 
-            this.itemsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.menuStrip.Location = new System.Drawing.Point(0, 0);
+      this.menuStrip.Name = "menuStrip";
+      this.menuStrip.Size = new System.Drawing.Size(1021, 24);
+      this.menuStrip.TabIndex = 2;
+      this.menuStrip.Text = "menuStrip1";
+      // 
+      // fileToolStripMenuItem
+      // 
+      this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+      this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+      this.fileToolStripMenuItem.Text = "File";
+      // 
+      // itemsToolStripMenuItem
+      // 
+      this.itemsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.removeToolStripMenuItem,
             this.clearToolStripMenuItem});
-            this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
-            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.itemsToolStripMenuItem.Text = "Items";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // removeToolStripMenuItem
-            // 
-            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.removeToolStripMenuItem.Text = "Remove";
-            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
-            // 
-            // clearToolStripMenuItem
-            // 
-            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clearToolStripMenuItem.Text = "Clear";
-            this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
-            // 
-            // MainForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1058, 539);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.listView);
-            this.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.MainMenuStrip = this.menuStrip;
-            this.Name = "MainForm";
-            this.Text = "Playlist Editor v1.0";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+      this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
+      this.itemsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+      this.itemsToolStripMenuItem.Text = "Items";
+      // 
+      // newToolStripMenuItem
+      // 
+      this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+      this.newToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+      this.newToolStripMenuItem.Text = "New";
+      this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+      // 
+      // removeToolStripMenuItem
+      // 
+      this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+      this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+      this.removeToolStripMenuItem.Text = "Remove";
+      this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
+      // 
+      // clearToolStripMenuItem
+      // 
+      this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
+      this.clearToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+      this.clearToolStripMenuItem.Text = "Clear";
+      this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
+      // 
+      // MainForm
+      // 
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.ClientSize = new System.Drawing.Size(1058, 539);
+      this.Controls.Add(this.panel1);
+      this.Controls.Add(this.toolStrip1);
+      this.Controls.Add(this.listView);
+      this.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+      this.MainMenuStrip = this.menuStrip;
+      this.Name = "MainForm";
+      this.Text = "Playlist Editor v1.0";
+      this.toolStrip1.ResumeLayout(false);
+      this.toolStrip1.PerformLayout();
+      this.panel1.ResumeLayout(false);
+      this.panel1.PerformLayout();
+      this.menuStrip.ResumeLayout(false);
+      this.menuStrip.PerformLayout();
+      this.ResumeLayout(false);
+      this.PerformLayout();
 
         }
 

@@ -12,8 +12,7 @@ namespace Wifi.PlaylistEditor
         string Description { get; set; }
 
         void Load();
-        void Save();
-        
+        void Save();        
     }
 
 }
