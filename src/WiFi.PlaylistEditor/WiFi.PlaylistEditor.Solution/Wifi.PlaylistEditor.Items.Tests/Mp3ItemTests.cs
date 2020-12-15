@@ -7,90 +7,159 @@ using System.Threading.Tasks;
 
 namespace Wifi.PlaylistEditor.Items.Tests
 {
-  public class Mp3ItemTests
-  {
-    [TestFixture]
-
-    public class Mp3ItemTest
+    public class Mp3ItemTests
     {
+        [TestFixture]
 
-      private IPlaylistItems _fixture;
+        public class Mp3ItemTest
+        {
 
-      [Test]
-      public void GetTitle()
-      {
-        //todo test debe tener esta estructura arrange, act, assert
-        //arrange
-        // se usa @para que interprete el \ o se hace con doble
-        _fixture = new Mp3Item(@"C:\Users\user\Pictures\TestMediaFiles\001 - Bruno Mars - Grenade.mp3");
+            private IPlaylistItems _fixture;
 
-        //act
-        var title = _fixture.Title;
+            [SetUp]
+            public void TestInit()
+            {
+                _fixture = new Mp3Item(@"C:\Users\user\Documents\TestMediaFiles\001 - Bruno Mars - Grenade.mp3");
+            }
 
-        //assert
-        Assert.That(title, Is.Not.Null);
-        Assert.That(title, Is.EqualTo("Grenade"));
-      }
+            [Test]
+            public void GetTitle()
+            {
+                //todo test debe tener esta estructura arrange, act, assert
+                //arrange
+                // se usa @para que interprete el \ o se hace con doble\\
+               // _fixture = new Mp3Item(@"C:\Users\user\Documents\TestMediaFiles\001 - Bruno Mars - Grenade.mp3"); tenemos el SetUp
 
-      [Test]
-      public void GetDuration()
-      {
-        //todo test debe tener esta estructura arrange, act, assert
-        //arrange
-        // se usa @para que interprete el \ o se hace con doble
-        _fixture = new Mp3Item(@"C:\Users\user\Pictures\TestMediaFiles\001 - Bruno Mars - Grenade.mp3");
+                //act
+                var title = _fixture.Title;
 
-        //act
-        var duration = _fixture.Duration;
+                //assert
+                Assert.That(title, Is.Not.Null);
+                Assert.That(title, Is.EqualTo("Grenade"));
+            }
 
-        //assert                
-        Assert.That(duration, Is.EqualTo(TimeSpan.FromSeconds(222.188)));
-      }
+            [Test]
+            public void GetDuration()
+            {
+                //todo test debe tener esta estructura arrange, act, assert
+                //arrange
+                // se usa @para que interprete el \ o se hace con doble
+                //_fixture = new Mp3Item(@"C:\Users\user\Documents\TestMediaFiles\001 - Bruno Mars - Grenade.mp3"); tenemos el SetUp
 
-      [Test]
-      public void GetTitle_FilePathIsNull()
-      {
-        //todo test debe tener esta estructura arrange, act, assert
-        //arrange
-        // se usa @para que interprete el \ o se hace con doble
-        _fixture = new Mp3Item(null);
+                //act
+                var duration = _fixture.Duration;
 
-        //act
-        var title = _fixture.Title;
+                //assert                
+                Assert.That(duration, Is.EqualTo(TimeSpan.FromSeconds(222.188)));
+            }
 
-        //assert                
-        Assert.That(title, Is.EqualTo("--[File not found]--"));
-      }
+            [Test]
+            public void GetArtist()
+            {
+                //todo test debe tener esta estructura arrange, act, assert
+                //arrange
+                // se usa @para que interprete el \ o se hace con doble
+                // _fixture = new Mp3Item(@"C:\Users\user\Documents\TestMediaFiles\001 - Bruno Mars - Grenade.mp3"); tenemos el SetUp
 
-      [Test]
-      public void GetTitle_FilePathNotExists()
-      {
-        //todo test debe tener esta estructura arrange, act, assert
-        //arrange
-        // se usa @para que interprete el \ o se hace con doble
-        _fixture = new Mp3Item(@"C:\Users\user\TestMediaFiles\001 - Bruno Mars - Grenade.mp3");
+                //act
+                var artist = _fixture.Artist;
 
-        //act
-        var title = _fixture.Title;
+                //assert                
+                Assert.That(artist, Is.EqualTo("Bruno Mars"));
+            }
 
-        //assert                
-        Assert.That(title, Is.EqualTo("--[File not found]--"));
-      }
+            [Test]
+            public void GetPath()
+            {
+                //todo test debe tener esta estructura arrange, act, assert
+                //arrange
+                // se usa @para que interprete el \ o se hace con doble
+                var demoMp3Path = @"C:\Users\user\Documents\TestMediaFiles\001 - Bruno Mars - Grenade.mp3";
+                _fixture = new Mp3Item(demoMp3Path);
+                //act
+                var path = _fixture.Path;
 
-      [Test]
-      public void GetTitle_FilePathEmpty()
-      {
-        //todo test debe tener esta estructura arrange, act, assert
-        //arrange
-        // se usa @para que interprete el \ o se hace con doble
-        _fixture = new Mp3Item(@"C:\Users\user\TestMediaFiles\001 - Bruno Mars - Grenade.mp3");
+                //assert                
+                Assert.That(path, Is.EqualTo(demoMp3Path));
+            }
 
-        //act
-        var title = _fixture.Title;
 
-        //assert                
-        Assert.That(title, Is.EqualTo("--[File not found]--"));
-      }
+            [Test]
+            public void GetThumbnail()
+            {
+                //todo test debe tener esta estructura arrange, act, assert
+                //arrange
+                // se usa @para que interprete el \ o se hace con doble
+                var demoMp3Path = @"C:\Users\user\Documents\TestMediaFiles\001 - Bruno Mars - Grenade.mp3";
+                _fixture = new Mp3Item(demoMp3Path);
+                //act
+                var thumbnail = _fixture.Thumbnail;
+
+                //assert                
+                Assert.That(thumbnail, Is.Not.Null);
+            }
+
+
+            [Test]
+            public void GetThumbnail_WithMp3FileWitNoImage()
+            {
+                //todo test debe tener esta estructura arrange, act, assert
+                //arrange
+                // se usa @para que interprete el \ o se hace con doble
+                var demoMp3Path = @"C:\Users\user\Documents\TestMediaFiles\001 - Bruno Mars - Grenade.mp3";
+                _fixture = new Mp3Item(demoMp3Path);
+                //act
+                var thumbnail = _fixture.Thumbnail;
+
+                //assert                
+                Assert.That(thumbnail, Is.Null);
+            }
+
+
+            [Test]
+            public void GetTitle_FilePathIsNull()
+            {
+                //todo test debe tener esta estructura arrange, act, assert
+                //arrange
+                // se usa @para que interprete el \ o se hace con doble
+                _fixture = new Mp3Item(String.Empty);
+
+                //act
+                var title = _fixture.Title;
+
+                //assert                
+                Assert.That(title, Is.EqualTo("--[File not found]--"));
+            }
+
+            [Test]
+            public void GetTitle_FilePathNotExists()
+            {
+                //todo test debe tener esta estructura arrange, act, assert
+                //arrange
+                // se usa @para que interprete el \ o se hace con doble
+                _fixture = new Mp3Item(@"C:\Users\user\TestMediaFiles\001 - Bruno Mars - Grenade.mp3");
+
+                //act
+                var title = _fixture.Title;
+
+                //assert                
+                Assert.That(title, Is.EqualTo("--[File not found]--"));
+            }
+
+            [Test]
+            public void GetTitle_FilePathEmpty()
+            {
+                //todo test debe tener esta estructura arrange, act, assert
+                //arrange
+                // se usa @para que interprete el \ o se hace con doble
+                _fixture = new Mp3Item(@"C:\Users\user\Documents\TestMediaFiles\001 - Bruno Mars - Grenade.mp3");
+
+                //act
+                var title = _fixture.Title;
+
+                //assert                
+                Assert.That(title, Is.EqualTo("--[File not found]--"));
+            }
+        }
     }
-  }
 }

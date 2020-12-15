@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IPlaylist.cs" />
     <Compile Include="IPlaylistItems.cs" />
     <Compile Include="IPlaylistRepository.cs" />
     <Compile Include="JsonRepository.cs" />
