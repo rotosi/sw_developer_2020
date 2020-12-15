@@ -50,6 +50,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlaylistCreators\frm_newPlaylist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlaylistCreators\frm_newPlaylist.Designer.cs">
+      <DependentUpon>frm_newPlaylist.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditMp3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaylistCreators\frm_newPlaylist.resx">
+      <DependentUpon>frm_newPlaylist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
