@@ -130,7 +130,7 @@ namespace Wifi.PlaylistEditor
 
             foreach (var file in OpenFileDialog1.FileNames)
             {
-                var item = _playlistItemFactory.Create(file);
+                var item = _playlistFactory.Create(file);
                 if (item != null)
                 { 
                 _playlist.Add(item);
