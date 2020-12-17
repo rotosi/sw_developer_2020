@@ -7,43 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Wifi.PlaylistEditor.Items;
+
+using Wifi.PlaylistEditor.Types;
 
 namespace Wifi.PlaylistEditor
 {
     public partial class MainForm : Form
     {      
 
-        Playlist playlist = new Playlist();
-        public MainForm()
+        Playlist _playlist = new Playlist();
+        private readonly INewPlaylistCreator _newPlaylistCreator;
+        private IPlaylistItemFactory _playlistFactory;
+
+        public MainForm(INewPlaylistCreator newPlaylistCreator, IPlaylistItemFactory _playlistItemFactory) //intansierung von constructor 
         {
             InitializeComponent();
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fontDialog1_Apply(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+            _newPlaylistCreator = newPlaylistCreator;
+            _playlistFactory = _playlistItemFactory;
+        }        
 
         private static ListViewItem createListViewItem(IPlaylistItems item)
         {
@@ -53,30 +34,30 @@ namespace Wifi.PlaylistEditor
             return lvi;
         }
         //nuevo desde items
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormEditMp3 editMp3 = new FormEditMp3();
-            if (editMp3.ShowDialog() == DialogResult.OK)
-            {
-                Items.Mp3Item mp3 = new Items.Mp3Item(editMp3.GetPath());
-                //mp3.Artist = editMp3.GetArtist();
-                //mp3.Title = editMp3.GetTitle();                
-                var lvi = createListViewItem(mp3);
-                listView1.Items.Add(lvi);
-            }
-        }
+        //private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    FormEditMp3 editMp3 = new FormEditMp3();
+        //    if (editMp3.ShowDialog() == DialogResult.OK)
+        //    {
+        //        Items.Mp3Item mp3 = new Items.Mp3Item(editMp3.GetPath());
+        //        //mp3.Artist = editMp3.GetArtist();
+        //        //mp3.Title = editMp3.GetTitle();                
+        //        var lvi = createListViewItem(mp3);
+        //        ListView1.Items.Add(lvi);
+        //    }
+        //}
         //remove desde itnems
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in listView1.SelectedItems)
+            foreach (ListViewItem item in ListView1.SelectedItems)
             {
-                listView1.Items.Remove(item);
+                ListView1.Items.Remove(item);
             }
         }
         //clear all from items
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
+            ListView1.Items.Clear();
         }
         //remove item from sweeping broom 
         private void toolStripButton5_Click(object sender, EventArgs e)
@@ -89,29 +70,29 @@ namespace Wifi.PlaylistEditor
         //create a new file from icon file
         private void NewPlaylistButton_Click(object sender, EventArgs e)
         {
-            frm_newPlaylist newPlaylistDialog = new frm_newPlaylist(); //llamamos la clase del dialogo donde esta el autor y el titulo
+            //frm_newPlaylist newPlaylistDialog = new frm_newPlaylist(); //llamamos la clase del dialogo donde esta el autor y el titulo
 
-            if (newPlaylistDialog.ShowDialog() != DialogResult.OK)
+            if (_newPlaylistCreator.StartDialog() != DialogResult.OK)
                 {
                 return;
             }
 
-            var title = newPlaylistDialog.Title;
-            var autor = newPlaylistDialog.Autor; //levamos todos los datos del usuario a la clase principal
+            var title = _newPlaylistCreator.Title;
+            var autor = _newPlaylistCreator.Autor; //levamos todos los datos del usuario a la clase principal
 
             //now create new playlist // instaciamos la clase // levamos todos los datos del usuario a la clase principal 
-            playlist = new Playlist(title, autor, DateTime.Now);
+            _playlist = new Playlist(title, autor, DateTime.Now);
 
             //update view
-            DisplayPlaylistDetails(playlist);
-            DisplayPlaylistItems(playlist);
+            DisplayPlaylistDetails(_playlist);
+            DisplayPlaylistItems(_playlist);
         }
 
         private void DisplayPlaylistItems(Playlist playlist)
         {
             int index = 0;
 
-            listView1.Items.Clear();
+            ListView1.Items.Clear();
             imageList1.Images.Clear();
 
             foreach (var item in playlist.ItemList)
@@ -142,20 +123,38 @@ namespace Wifi.PlaylistEditor
 
         private void AddNewItemToPlaylist_Click(object sender, EventArgs e)
         {
-            if (OpenFileDialog1.showDialog() != DialogResult.OK)
+            if (OpenFileDialog1.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
 
-            foreach (item in OpenFileDialog1.FileNames)
+            foreach (var file in OpenFileDialog1.FileNames)
             {
-                var item = new Mp3Item(file);
-                playlist.Add(item);
+                var item = _playlistItemFactory.Create(file);
+                if (item != null)
+                { 
+                _playlist.Add(item);
+                }
             }
 
             //update view
-            DisplayPlaylistDetails(playlist);
-            DisplayPlaylistItems(playlist);
+            DisplayPlaylistDetails(_playlist);
+            DisplayPlaylistItems(_playlist);
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

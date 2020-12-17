@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Wifi.PlaylistEditor
 {
-    public partial class frm_newPlaylist : Form
+    public partial class frm_newPlaylist : Form, INewPlaylistCreator
     {
         public frm_newPlaylist()
         {
@@ -50,6 +50,12 @@ namespace Wifi.PlaylistEditor
         }
 
 
+        public DialogResult StartDialog()
+        {
+            return (ShowDialog());
+        }
+
+
         private void Btn_Cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -60,7 +66,7 @@ namespace Wifi.PlaylistEditor
         {
             if (string.IsNullOrWhiteSpace(txt_title.Text) || string.IsNullOrWhiteSpace(txt_autor.Text))
 
-                MessageBox.Show("Title und Author dürfen nicht leer sein!","Fehlereingabe", 
+                MessageBox.Show("Title und Author dürfen nicht leer sein!", "Fehlereingabe",
                                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             DialogResult = DialogResult.OK;
             Close();

@@ -35,6 +35,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,8 +51,15 @@
     <Reference Include="TagLibSharp, Version=2.2.0.0, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL">
       <HintPath>..\packages\TagLibSharp.2.2.0\lib\net45\TagLibSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Abstractions, Version=5.11.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.9\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.10.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.9\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlaylistCreators\DummyCreator.cs" />
     <Compile Include="PlaylistCreators\frm_newPlaylist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +78,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlaylistCreators\INewPlaylistCreator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormEditMp3.resx">
@@ -107,9 +118,9 @@
     <None Include="Resources\new-document-32-1163472.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Wifi.PlaylistEditor.Items\Wifi.PlaylistEditor.Items.csproj">
-      <Project>{7dd0e414-8c30-464a-9fc5-0284956eecde}</Project>
-      <Name>Wifi.PlaylistEditor.Items</Name>
+    <ProjectReference Include="..\Wifi.PlaylistEditor.Factories\Wifi.PlaylistEditor.Factories.csproj">
+      <Project>{e8c376e7-da52-4e78-bf97-5a113526a71d}</Project>
+      <Name>Wifi.PlaylistEditor.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\Wifi.PlaylistEditor.Types\Wifi.PlaylistEditor.Types.csproj">
       <Project>{48f389a2-70be-416d-be44-594b2d61ef56}</Project>

@@ -30,17 +30,17 @@ namespace Wifi.PlaylistEditor
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.ListView1 = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_playlistDetails = new System.Windows.Forms.Label();
             this.lbl_playlistTitle = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.to = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -49,19 +49,21 @@ namespace Wifi.PlaylistEditor
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.OpenFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listView1
+            // ListView1
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(40, 125);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1006, 402);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.ListView1.AccessibleName = "ListView1";
+            this.ListView1.HideSelection = false;
+            this.ListView1.Location = new System.Drawing.Point(40, 125);
+            this.ListView1.Name = "ListView1";
+            this.ListView1.Size = new System.Drawing.Size(1006, 402);
+            this.ListView1.TabIndex = 2;
+            this.ListView1.UseCompatibleStateImageBehavior = false;
             // 
             // panel1
             // 
@@ -75,6 +77,7 @@ namespace Wifi.PlaylistEditor
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1021, 119);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lbl_playlistDetails
             // 
@@ -95,13 +98,17 @@ namespace Wifi.PlaylistEditor
             this.lbl_playlistTitle.Size = new System.Drawing.Size(415, 39);
             this.lbl_playlistTitle.TabIndex = 0;
             this.lbl_playlistTitle.Text = "Demoplaylist Charts 1980";
-            this.lbl_playlistTitle.Click += new System.EventHandler(this.label1_Click);
             // 
-            // imageList1
+            // menuStrip
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.itemsToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1021, 24);
+            this.menuStrip.TabIndex = 2;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -140,16 +147,11 @@ namespace Wifi.PlaylistEditor
             this.clearToolStripMenuItem.Text = "Clear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
-            // menuStrip
+            // imageList1
             // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.itemsToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1021, 24);
-            this.menuStrip.TabIndex = 2;
-            this.menuStrip.Text = "menuStrip1";
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // to
             // 
@@ -170,6 +172,7 @@ namespace Wifi.PlaylistEditor
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(34, 36);
             this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton3
             // 
@@ -233,6 +236,11 @@ namespace Wifi.PlaylistEditor
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // OpenFileDialog1
+            // 
+            this.OpenFileDialog1.FileName = "OpenFileDialog1";
+            this.OpenFileDialog1.Title = "OpenFileDialog1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,11 +249,12 @@ namespace Wifi.PlaylistEditor
             this.ClientSize = new System.Drawing.Size(1058, 539);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.ListView1);
             this.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
             this.Text = "Playlist Editor v1.0";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip.ResumeLayout(false);
@@ -259,7 +268,7 @@ namespace Wifi.PlaylistEditor
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView ListView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_playlistDetails;
         private System.Windows.Forms.Label lbl_playlistTitle;
@@ -278,6 +287,7 @@ namespace Wifi.PlaylistEditor
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.OpenFileDialog OpenFileDialog1;
     }
 }
 
