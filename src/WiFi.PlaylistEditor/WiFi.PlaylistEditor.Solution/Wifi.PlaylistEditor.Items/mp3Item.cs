@@ -78,6 +78,8 @@ namespace Wifi.PlaylistEditor.Items
     override public string ToString()
     {
       return _title + " (" + _artist + ")";
+
+            //something is missing here form Atilla 
     }
     private void Read(string path)
     {
@@ -87,6 +89,10 @@ namespace Wifi.PlaylistEditor.Items
       _artist = tfile.Tag.JoinedAlbumArtists; //firtAlbumArtist
       _pictures = tfile.Tag.Pictures;
     }
+            
+
+
+
     private void ReadIdv3TagsFromFile()
     {
       var tfile = TagLib.File.Create(_path);

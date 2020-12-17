@@ -9,6 +9,7 @@ namespace Wifi.PlaylistEditor.Types
     public interface IPlaylistItemFactory
     {
         IPlaylistItems Create(string filepath);
+        //hacer n filtro para leer solo mp3 formatos
 
     }
 }

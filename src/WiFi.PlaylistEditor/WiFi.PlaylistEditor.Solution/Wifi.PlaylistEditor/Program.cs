@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
+using Wifi.PlaylistEditor.Factories;
 using Wifi.PlaylistEditor.PlaylistCreators;
 using Wifi.PlaylistEditor.Types;
 
@@ -27,7 +28,7 @@ namespace Wifi.PlaylistEditor
 
             //Type registrieren
             container.RegisterType<INewPlaylistCreator, frm_newPlaylist>();
-            container.RegisterType<IPlaylistItemFactory, IPlaylistItemFactory>();
+            container.RegisterType<IPlaylistItemFactory, PlaylistItemFactory>();
 
             //konkrete instanzen erzeugen
             //INewPlaylistCreator playlistCreator = new frm_newPlaylist();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wifi.PlaylistEditor.Types
 {
-    public class M3uRepository : IPlaylistRepository
+    public class M3uRepository : IRepository
     {
         public string Extension { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

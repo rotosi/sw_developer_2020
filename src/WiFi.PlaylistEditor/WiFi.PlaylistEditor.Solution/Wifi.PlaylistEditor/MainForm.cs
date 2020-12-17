@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Wifi.PlaylistEditor.Properties;
 using Wifi.PlaylistEditor.Types;
 
 namespace Wifi.PlaylistEditor
@@ -84,6 +84,7 @@ namespace Wifi.PlaylistEditor
             _playlist = new Playlist(title, autor, DateTime.Now);
 
             //update view
+            enableItemCommands(true);
             DisplayPlaylistDetails(_playlist);
             DisplayPlaylistItems(_playlist);
         }
@@ -100,7 +101,15 @@ namespace Wifi.PlaylistEditor
                 ListViewItem lvi = new ListViewItem(item.ToString());
                 lvi.ImageIndex = index;
                 lvi.Tag = item;
-                imageList1.Images.Add(item.Thumbnail);
+
+                if (item.Thumbnail != null)
+                {
+                    imageList1.Images.Add(item.Thumbnail);
+                }
+                else
+                {
+                    imageList1.Images.Add(Resources.no_image);
+                }                
 
                 ListView1.Items.Add(lvi);
                 index++;
@@ -149,12 +158,40 @@ namespace Wifi.PlaylistEditor
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            lbl_playlistTitle.Text = string.Empty;
+            //Playlist Dauer: 00:15:12 | Autor: Sia
+            lbl_playlistDetails.Text = "Spielzeit: 00:00:00 | Autor: -";
 
+            enableItemCommands(false);
+        }
+
+        private void enableItemCommands(bool enabled) // cuando queremos que las cosas inicien desabled
+        {
+            toolStripButton4.Enabled = enabled;
+            toolStripButton5.Enabled = enabled;
+            toolStripButton6.Enabled = enabled;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (var ListViewIem in ListView1.SelectedItems)
+            {
+                
+                var playlistItems = itemsToolStripMenuItem.Tag as IPlaylistItems;
+                if (playlistItems != null) 
+                {
+                    //artist: Max Sänger
+                    lbl_playlistDetails.Text = $"Artist {playlistItems.Artist} | Title: {playlistItems.Title} " +
+                                               $"| Duration: {playlistItems.Duration.ToString("hh\\:mm\\:ss")} |  {playlistItems.Path }" ;
+                }
+
+            }
+        }
+        
     }
 }

@@ -15,7 +15,7 @@ namespace Wifi.PlaylistEditor
         private string _autor;
         private DateTime _createArt;
         private List<IPlaylistItems> _itemList = new List<IPlaylistItems>();
-        private IPlaylistRepository _repository = new M3uRepository();
+        private IRepository _repository = new M3uRepository();
 
         //constructor
         public Playlist(string name, string author, DateTime createAt)

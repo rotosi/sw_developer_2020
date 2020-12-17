@@ -41,15 +41,15 @@ namespace Wifi.PlaylistEditor
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.OpenFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.to = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.OpenFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -64,6 +64,7 @@ namespace Wifi.PlaylistEditor
             this.ListView1.Size = new System.Drawing.Size(1006, 402);
             this.ListView1.TabIndex = 2;
             this.ListView1.UseCompatibleStateImageBehavior = false;
+            this.ListView1.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -88,6 +89,7 @@ namespace Wifi.PlaylistEditor
             this.lbl_playlistDetails.Size = new System.Drawing.Size(297, 24);
             this.lbl_playlistDetails.TabIndex = 1;
             this.lbl_playlistDetails.Text = "Playlist Dauer: 00:15:12 | Autor: Sia";
+            
             // 
             // lbl_playlistTitle
             // 
@@ -131,7 +133,6 @@ namespace Wifi.PlaylistEditor
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.newToolStripMenuItem.Text = "New";
-           // this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
@@ -150,8 +151,37 @@ namespace Wifi.PlaylistEditor
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.ImageSize = new System.Drawing.Size(64, 64);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(34, 6);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.to,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripSeparator1,
+            this.toolStripButton4,
+            this.toolStripButton5,
+            this.toolStripButton6});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(37, 539);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // OpenFileDialog1
+            // 
+            this.OpenFileDialog1.FileName = "OpenFileDialog1";
+            this.OpenFileDialog1.Multiselect = true;
+            this.OpenFileDialog1.Title = "OpenFileDialog1";
             // 
             // to
             // 
@@ -183,11 +213,6 @@ namespace Wifi.PlaylistEditor
             this.toolStripButton3.Size = new System.Drawing.Size(34, 36);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(34, 6);
-            // 
             // toolStripButton4
             // 
             this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -217,29 +242,6 @@ namespace Wifi.PlaylistEditor
             this.toolStripButton6.Size = new System.Drawing.Size(34, 36);
             this.toolStripButton6.Text = "toolStripButton6";
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.to,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripSeparator1,
-            this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton6});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(37, 539);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // OpenFileDialog1
-            // 
-            this.OpenFileDialog1.FileName = "OpenFileDialog1";
-            this.OpenFileDialog1.Title = "OpenFileDialog1";
             // 
             // MainForm
             // 

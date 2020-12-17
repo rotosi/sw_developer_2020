@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wifi.PlaylistEditor.Types
 {
-    class JsonRepository : IPlaylistRepository
+    class JsonRepository : IRepository
     {
         public string Extension { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
