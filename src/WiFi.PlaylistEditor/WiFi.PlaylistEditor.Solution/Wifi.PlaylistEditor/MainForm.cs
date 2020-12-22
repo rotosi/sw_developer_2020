@@ -60,12 +60,19 @@ namespace Wifi.PlaylistEditor
             ListView1.Items.Clear();
         }
         //remove item from sweeping broom 
-        private void toolStripButton5_Click(object sender, EventArgs e)
+        private void ClearAllList_Click(object sender, EventArgs e)
         {
-            //foreach (ListViewItem item in listView.SelectedItems)
-            //{
-            //  listView.Items.Remove(item);
-            //}
+            //ListView1.Items.Clear();
+
+            _playlist.Clear();
+
+            //update view
+
+            lbl_playlistDetails.Text = string.Empty; // se limpia toda la lista incluso la parte de abajo la del pie de pagina
+            DisplayPlaylistDetails(_playlist);
+            DisplayPlaylistItems(_playlist);
+
+
         }
         //create a new file from icon file
         private void NewPlaylistButton_Click(object sender, EventArgs e)
@@ -125,9 +132,23 @@ namespace Wifi.PlaylistEditor
         }
 
         //clear all from icon
-        private void toolStripButton6_Click(object sender, EventArgs e)
+        private void RemoveItemFromList_Click(object sender, EventArgs e)
         {
-            //listView.Items.Clear();
+            //foreach (ListViewItem item in ListView1.SelectedItems)
+            //{
+            //    ListView1.Items.Remove(item);
+            //}
+
+            var playlistItems = GetSelectedPlaylistItem();
+            if (playlistItems != null)
+            {
+                _playlist.Remove(playlistItems);
+
+                //
+                DisplayPlaylistDetails(_playlist);
+                DisplayPlaylistItems(_playlist);
+               
+            }
         }
 
         private void AddNewItemToPlaylist_Click(object sender, EventArgs e)
@@ -181,8 +202,8 @@ namespace Wifi.PlaylistEditor
         {
             foreach (var ListViewIem in ListView1.SelectedItems)
             {
-                
-                var playlistItems = itemsToolStripMenuItem.Tag as IPlaylistItems;
+
+                var playlistItems = GetSelectedPlaylistItem();
                 if (playlistItems != null) 
                 {
                     //artist: Max Sänger
@@ -190,7 +211,18 @@ namespace Wifi.PlaylistEditor
                                                $"| Duration: {playlistItems.Duration.ToString("hh\\:mm\\:ss")} |  {playlistItems.Path }" ;
                 }
 
+
             }
+        }
+
+        private IPlaylistItems GetSelectedPlaylistItem()
+        {
+            foreach (ListViewItem item in ListView1.SelectedItems)
+            {
+                return item.Tag as IPlaylistItems;
+            
+            }
+            return null;
         }
         
     }

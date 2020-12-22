@@ -29,6 +29,10 @@ namespace Wifi.PlaylistEditor.Factories
                     playlistItems = new Mp3Item(filepath);
                     break;
 
+                //case ".jpg":
+                //    playlistItems = new PictureItem(filepath); // cuando no es conocido el formato va a el default
+                //    break;
+
                 default:
                     playlistItems = null;
                     break;
